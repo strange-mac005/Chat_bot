@@ -1,11 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask,render_template
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SECRET_KEY']="skjahkjdh"
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///data.db'
+db=SQLAlchemy(app)
 
+from routes import *
 
-@app.route("/")
-def index():
-    return render_template('index.html', title='Home')
-
-
-app.run(debug=True, host='25.51.130.154')
+if __name__=='__main__':
+    app.run(debug=True, host='localhost')

@@ -1,0 +1,11 @@
+{% extends "basic_layout.html" %}
+     {% block content %}
+     Task
+     <ul>
+          {% if tasks%}
+                    {% for t in tasks:%}
+          <li>          {{t.title}} created on {{t.date}}<a href="{{url_for('edit',task_id=t.id)}}">EDIT</a><a href="{{url_for('delete',task_id=t.id)}}">Delete</a></li>
+                    {% endfor %}
+          {% endif %}
+     </ul>
+      {% endblock content %}

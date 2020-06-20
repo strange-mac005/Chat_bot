@@ -1,0 +1,12 @@
+{% extends "basic_layout.html" %}
+{% block content %}
+<form method="post" action='/sampleform'>
+          {{form.csrf_token}}
+          {{form.title.label}}
+          {{form.title}}
+          {{form.submit}}
+</form>
+{% if title %}
+{{title}}
+{% endif %}
+  {% endblock content %}
